@@ -1,3 +1,13 @@
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #1d3557;
+    --accent-color: #e63946;
+    --text-color: #333;
+    --light-color: #f1faee;
+    --dark-color: #1d3557;
+    --gradient: linear-gradient(135deg, #e63946 0%, #a8dadc 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -44,7 +54,7 @@ nav {
 }
 
 .logo-3n {
-    color: #ffd700;
+    color: #e63946;
     font-size: 1.8rem;
     font-weight: bold;
 }
@@ -68,7 +78,7 @@ nav {
     position: absolute;
     width: 0;
     height: 2px;
-    background: #ffd700;
+    background: #e63946;
     left: 0;
     bottom: -5px;
     transition: width 0.3s ease;
@@ -191,7 +201,7 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: #ffd700;
+    background: #e63946;
 }
 
 .service-grid {
@@ -214,19 +224,13 @@ nav {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border-color: #ffd700;
+    box-shadow: 0 20px 40px rgba(230, 57, 70, 0.15);
 }
 
 .service-card i {
-    font-size: 3rem;
-    color: #ffd700;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.service-card:hover i {
-    transform: scale(1.1);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
 }
 
 .service-card h3 {
@@ -258,7 +262,7 @@ nav {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #ffd700;
+    color: #e63946;
     font-weight: bold;
 }
 
@@ -297,7 +301,7 @@ nav {
 
 .differential-card i {
     font-size: 2.5rem;
-    color: #ffd700;
+    color: #e63946;
     margin-bottom: 1.5rem;
 }
 
@@ -332,7 +336,7 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: #ffd700;
+    background: #e63946;
 }
 
 .about-content p {
@@ -367,7 +371,7 @@ nav {
 
 .feature i {
     font-size: 1.5rem;
-    color: #ffd700;
+    color: #e63946;
 }
 
 .feature span {
@@ -396,7 +400,7 @@ nav {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: #ffd700;
+    background: #e63946;
 }
 
 .contact-content p {
@@ -440,7 +444,7 @@ nav {
 
 .info-item i {
     font-size: 1.5rem;
-    color: #ffd700;
+    color: var(--primary-color);
 }
 
 .info-item p {
@@ -483,7 +487,7 @@ footer {
 }
 
 .social-icon:hover {
-    color: #ffd700;
+    color: #e63946;
     transform: translateY(-3px);
 }
 
@@ -499,6 +503,32 @@ footer p {
     font-size: 1.5rem;
     color: #fff;
     cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(26, 26, 26, 0.98);
+    padding: 80px 20px 20px;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
 /* Responsive Design */
@@ -512,38 +542,86 @@ footer p {
     }
     
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        padding: 0 1rem;
     }
     
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 0 1rem;
     }
     
     .cta-buttons {
         flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .differentials-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
     
     .contact-info {
         flex-direction: column;
         gap: 1.5rem;
+        padding: 0 1rem;
     }
     
     .footer-content {
         flex-direction: column;
         gap: 2rem;
         text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .services h2, 
+    .differentials h2, 
+    .about h2, 
+    .contact h2 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .differential-card {
+        padding: 1.5rem;
+    }
+    
+    .about-content p {
+        padding: 0 1rem;
+    }
+    
+    .contact-content p {
+        padding: 0 1rem;
+    }
+    
+    .whatsapp-button {
+        width: 90%;
+        text-align: center;
+        justify-content: center;
     }
 }
 
 .services-note {
     text-align: center;
-    margin-top: 4rem;
     padding: 2rem;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 15px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    background: rgba(230, 57, 70, 0.05);
+    border-radius: 10px;
+    margin-top: 2rem;
 }
 
 .services-note p {
@@ -552,17 +630,7 @@ footer p {
     margin-bottom: 1.5rem;
 }
 
-.services-note .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #25d366;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-}
-
-.services-note .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+.services-note .btn {
+    background: var(--primary-color);
+    margin-top: 1rem;
 } 

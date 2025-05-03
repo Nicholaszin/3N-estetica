@@ -34,7 +34,7 @@
             <h1>Excelência em Estética Automotiva</h1>
             <p>Transforme seu veículo com nossos serviços profissionais de polimento, vitrificação e muito mais.</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/55719999008032" class="cta-button">
+                <a href="https://wa.me/5571999008032" class="cta-button">
                     <i class="fab fa-whatsapp"></i> Agende Agora
                 </a>
                 <a href="#servicos" class="cta-button secondary">
@@ -116,7 +116,7 @@
         </div>
         <div class="services-note" data-aos="fade-up">
             <p>* Consulte todos os nossos serviços disponíveis através do WhatsApp</p>
-            <a href="https://wa.me/55719999008032" class="cta-button">
+            <a href="https://wa.me/5571999008032" class="cta-button">
                 <i class="fab fa-whatsapp"></i> Saiba Mais
             </a>
         </div>
@@ -168,7 +168,7 @@
         <h2 data-aos="fade-up">Entre em Contato</h2>
         <div class="contact-content" data-aos="fade-up">
             <p>Agende seu horário através do WhatsApp:</p>
-            <a href="https://wa.me/55719999008032" class="whatsapp-button">
+            <a href="https://wa.me/5571999008032" class="whatsapp-button">
                 <i class="fab fa-whatsapp"></i> (71) 99900-8032
             </a>
             <div class="contact-info">
@@ -191,8 +191,9 @@
                 <span class="logo-3n">3N</span>
             </div>
             <div class="footer-social">
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/3n_estetica" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
         </div>
         <p>&copy; 2024 Estética Automotiva 3N. Todos os direitos reservados.</p>
@@ -203,6 +204,31 @@
         AOS.init({
             duration: 1000,
             once: true
+        });
+
+        // Menu Mobile
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const menuLinks = document.querySelectorAll('.nav-links a');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenu.contains(e.target)) {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     </script>
 </body>
